@@ -49,12 +49,12 @@ io.on('connection', (client) => {
             if (wagers[i].room == room) {
                 wagerAmount = wagers[i].wager;
                 wagers[i] = {};
-                for (var j = 0; j < balances.length; j++) {
-                    if (balances[j].username = user) {
-                        balances[j].balance = parseFloat(balances[j].balance) + parseFloat(wagerAmount);
-                        client.emit('refunded', balances[j].balance);
-                    }
-                }
+            }
+        }
+        for (var j = 0; j < balances.length; j++) {
+            if (balances[j].username = user) {
+                balances[j].balance = parseFloat(balances[j].balance) + parseFloat(wagerAmount);
+                client.emit('refunded', balances[j].balance);
             }
         }
     }
