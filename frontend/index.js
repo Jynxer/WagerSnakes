@@ -297,7 +297,7 @@ function handleInitWager(code) {
 
 function returnToMenuFromGame() {
     if (gameActive) {
-        socket.emit('refund', { username: username, room: currRoom });
+        socket.emit('refund', JSON.stringify({ username: username, room: currRoom }));
     }
     playerNumber = null;
     gameCodeInput.value = "";
