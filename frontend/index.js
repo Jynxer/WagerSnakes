@@ -3,7 +3,7 @@ const SNAKE_COLOUR = 'blue';
 const SNAKE_COLOUR_TWO = '#E600FF';
 const FOOD_COLOUR = '#FFC107';
 
-var socket = io.connect('http://localhost:3000', {transports: ['websocket']});
+var socket = io.connect('https://intense-dawn-71103.herokuapp.com/', {transports: ['websocket']});
 
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
