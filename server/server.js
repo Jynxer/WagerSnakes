@@ -128,7 +128,7 @@ io.on('connection', (client) => {
     }
 
     function handleSignUp(username) {
-        balances.push({ username: username, balance: 100 });
+        balances.push({ username: username, balance: 1000 });
         console.log(balances);
     }
 
