@@ -292,7 +292,7 @@ function handleAcceptedWager(newBalance) {
 
 function handleInitWager(code) {
     var wagerAmount = wagerAmountInput.value;
-    if (wagerAmountInput) {
+    if (wagerAmountInput > 0) {
         socket.emit('createWager', JSON.stringify({ room: code, user: username, wager: wagerAmount }));
     } else {
         socket.emit('createWager', JSON.stringify({ room: code, user: username, wager: 0 }));
