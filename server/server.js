@@ -106,12 +106,10 @@ io.on('connection', (client) => {
 
         for (var i = 0; i < balances.length; i++) {
             if (balances[i].username == user) {
-                if (balances[i].balance >= wagerAmount) {
-                    wagers.push({ room: code, username: user, wager: wagerAmount });
-                    //console.log(wagers);
-                    balances[i].balance = parseFloat(balances[i].balance) - parseFloat(wagerAmount);
-                    client.emit('createdWager', balances[i].balance);
-                }
+                wagers.push({ room: code, username: user, wager: wagerAmount });
+                //console.log(wagers);
+                balances[i].balance = parseFloat(balances[i].balance) - parseFloat(wagerAmount);
+                client.emit('createdWager', balances[i].balance);
             }
         }
     }
