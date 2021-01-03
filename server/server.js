@@ -51,7 +51,7 @@ io.on('connection', (client) => {
                 wagers[i] = {};
                 for (var j = 0; j < balances.length; j++) {
                     if (balances[j].username = user) {
-                        balances[j].balance = balances[j].balance + wagerAmount;
+                        balances[j].balance = parseFloat(balances[j].balance) + parseFloat(wagerAmount);
                         client.emit('refund', balances[j].balance);
                     }
                 }
