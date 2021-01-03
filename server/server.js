@@ -17,7 +17,7 @@ var app = express();
 //app.get('/', (req, res) => res.send("Hello world!"));
 
 var server = http.Server(app);
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT);
 
 var io = require('socket.io')(server, {transports: ['websocket']});
 
@@ -52,7 +52,7 @@ io.on('connection', (client) => {
                 for (var j = 0; j < balances.length; j++) {
                     if (balances[j].username = user) {
                         balances[j].balance = parseFloat(balances[j].balance) + parseFloat(wagerAmount);
-                        client.emit('refund', balances[j].balance);
+                        client.emit('refunded', balances[j].balance);
                     }
                 }
             }

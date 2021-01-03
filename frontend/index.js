@@ -16,7 +16,7 @@ socket.on('unknownUser', handleUnknownUser);
 socket.on('createdWager', handleWager);
 socket.on('initWager', handleInitWager);
 socket.on('acceptedWager', handleWager);
-socket.on('refund', handleWager);
+socket.on('refunded', handleWager);
 
 const front = document.getElementById('front');
 const gameScreen = document.getElementById('gameScreen');
