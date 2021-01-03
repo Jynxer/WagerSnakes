@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        #logInScreen {
+            display: none;
+        }
+        #initialScreen {
+            display: none;
+        }
+        #signUpScreen {
+            display: none;
+        }
+        #gameScreen {
+            display: none;
+        }
+        #menuScreen {
+            display: none;
+        }
+        #logOutButton {
+            display: none;
+        }
+        #rematchButton {
+            display: none;
+        }
+        #returnButton {
+            display: none;
+        }
+
+        
+
+    </style>
+</head>
+<body id="bodyId" style="background-color: #512DA8;">
+    <section class="vh-100">
+        <div class="container h-100">
+
+            <div class="fixed-top" id="accountInfo" style="color: orange; padding-left: 5%; padding-top: 5%;">
+                <h2 id="accountUsername">Not Logged In</h2>
+                <h2 id="accountBalance"></h2>
+            </div>
+
+            <div class="fixed-top" id="accountInfo" style="color: orange; padding-right: 5%; padding-top: 5%;">
+                <button type="submit" class="button" id="logOutButton" style="float: right; background-color: orange; color: white;">Log Out</button>
+            </div>
+
+            <div id="front" class="h-100">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+
+                    <img src="Wager Snakes.png"></img>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <button type="submit" class="btn btn-success" id="logInButton" style="background-color: #536DFE; color: white;">Log In!</button>
+                    <p></p>
+                    <button type="submit" class="btn btn-success" id="signUpButton" style="background-color: #536DFE; color: white;">Sign Up!</button>
+
+                </div>
+            </div>
+
+            <div id="logInScreen" class="h-100">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+
+                    <img src="Wager Snakes.png"></img>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter Username" id="logInUsernameInput"/>
+                    </div>
+                    <p></p>
+                    <button type="submit" class="btn btn-success" id="logInButtonTwo" style="background-color: #536DFE; color: white;">Log In!</button>
+                    <p></p>
+                    <button type="submit" class="btn btn-success" id="returnToMenuButton" style="background-color: #536DFE; color: white;">Return to Menu</button>
+
+                </div>
+            </div>
+
+            <div id="signUpScreen" class="h-100">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+
+                    <img src="Wager Snakes.png"></img>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter Username" id="signUpUsernameInput"/>
+                    </div>
+                    <p></p>
+                    <button type="submit" class="btn btn-success" id="signUpButtonTwo" style="background-color: #536DFE; color: white;">Sign Up!</button>
+                    <h2 id="success" style="color: white;">Success!</h2>
+                    <p></p>
+                    <button type="submit" class="btn btn-success" id="returnToMenuButtonTwo" style="background-color: #536DFE; color: white;">Return to Menu</button>
+
+                </div>
+            </div>
+
+            <div id="menuScreen" class="h-100">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+
+                    <img src="Wager Snakes.png"></img>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter Wager Amount" id="wagerAmountInput"/>
+                    </div>
+                    <button type="submit" class="btn btn-success" id="newGameButton" style="background-color: #536DFE; color: white;"> Create New Game </button>
+                    <p></p>
+
+                    <div style="color: white;">OR</div>
+                    <p></p>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter Game Code" id="gameCodeInput"/>
+                    </div>
+                    <p></p>
+
+                    <button type="submit" class="btn btn-success" id="joinGameButton" style="background-color: #536DFE; color: white;">Join Game</button>
+                
+                </div>
+
+            </div>
+
+            <div id="gameScreen" class="h-100">
+                <div class="d-flex flex-column align-items-center justify-content-center h-100">
+                    
+                    <img src="Wager Snakes.png"></img>
+                    <p></p>
+                    <h3 style="color: white;"> Game Code: <span id="gameCodeDisplay"></span></h1>
+                    <canvas id="canvas"></canvas>
+                    <p></p>
+                    <button type="submit" class="btn btn-success" id="rematchButton" style="background-color: #536DFE; color: white;"> Rematch </button>
+                    <p></p>
+                    <h1 id="winner" style="color: white;"> </h1>
+                    <p></p>
+                    <button type="submit" class="btn btn-success" id="returnButton" style="background-color: #536DFE; color: white;"> Return to Menu </button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.0.4/socket.io.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
