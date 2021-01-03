@@ -38,6 +38,26 @@ io.on('connection', (client) => {
     client.on('createWager', handleCreateWager);
     client.on('joinWager', handleJoinWager);
     client.on('won', handleWon);
+    client.on('refund', handleRefund);
+
+    function handleRefund(data) {
+        data = JSON.parse(data);
+        var user = data.username;
+        var room = data.room;
+        var wagerAmount = 0;
+        for (var i = 0; i < wagers.length; i++) {
+            if (wagers[i].room == roomName) {
+                wagerAmount = wagers[i].wager;
+                wagers[i] = {};
+                for (var j = 0; j < balances.length; j++) {
+                    if (balances[j].username = user) {
+                        balances[j].balance = balances[j].balance + wagerAmount;
+                        client.emit('refund', balances[j].balance);
+                    }
+                }
+            }
+        }
+    }
 
     function handleWon(data) {
         data = JSON.parse(data);

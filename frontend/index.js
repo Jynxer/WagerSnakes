@@ -13,9 +13,10 @@ socket.on('unknownGame', handleUnknownGame);
 socket.on('tooManyPlayers', handleTooManyPlayers);
 socket.on('logIn', handleLogIn);
 socket.on('unknownUser', handleUnknownUser);
-socket.on('createdWager', handleCreatedWager);
+socket.on('createdWager', handleWager);
 socket.on('initWager', handleInitWager);
-socket.on('acceptedWager', handleAcceptedWager);
+socket.on('acceptedWager', handleWager);
+socket.on('refund', handleWager);
 
 const front = document.getElementById('front');
 const gameScreen = document.getElementById('gameScreen');
@@ -48,7 +49,7 @@ const wagerAmountInput = document.getElementById('wagerAmountInput');
 newGameButton.addEventListener('click', newGame);
 joinGameButton.addEventListener('click', joinGame);
 rematchButton.addEventListener('click', rematch);
-returnButton.addEventListener('click', reset);
+returnButton.addEventListener('click', returnToMenuFromGame);
 logInButton.addEventListener('click', logIn);
 signUpButton.addEventListener('click', signUp);
 signUpButtonTwo.addEventListener('click', signUpTwo);
@@ -277,13 +278,7 @@ function handleUnknownUser() {
     accountBalance.innerText = "Try Again"
 }
 
-function handleCreatedWager(newBalance) {
-    balance = newBalance;
-    accountBalance.innerText = "Coins:  " + newBalance;
-    // Show wager amount during game
-}
-
-function handleAcceptedWager(newBalance) {
+function handleWager(newBalance) {
     balance = newBalance;
     console.log("New Balance = " + newBalance);
     accountBalance.innerText = "Coins:  " + newBalance;
@@ -298,4 +293,16 @@ function handleInitWager(code) {
         socket.emit('createWager', JSON.stringify({ room: code, user: username, wager: 0 }));
     }
     
+}
+
+function returnToMenuFromGame() {
+    if (gameActive) {
+        socket.emit('refund', { username: username, room: currRoom });
+    }
+    playerNumber = null;
+    gameCodeInput.value = "";
+    winner.innerText = "";
+    bodyId.style.backgroundColor = '#512DA8';
+    menuScreen.style.display = "block";
+    gameScreen.style.display = "none";
 }
