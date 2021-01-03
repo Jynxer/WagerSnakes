@@ -17,7 +17,7 @@ var app = express();
 //app.get('/', (req, res) => res.send("Hello world!"));
 
 var server = http.Server(app);
-server.listen(process.env.PORT);
+server.listen(process.env.PORT || 3000);
 
 var io = require('socket.io')(server, {transports: ['websocket']});
 
