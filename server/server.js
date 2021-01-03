@@ -46,7 +46,7 @@ io.on('connection', (client) => {
         var room = data.room;
         var wagerAmount = 0;
         for (var i = 0; i < wagers.length; i++) {
-            if (wagers[i].room == roomName) {
+            if (wagers[i].room == room) {
                 wagerAmount = wagers[i].wager;
                 wagers[i] = {};
                 for (var j = 0; j < balances.length; j++) {
